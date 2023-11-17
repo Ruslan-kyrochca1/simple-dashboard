@@ -1,25 +1,20 @@
-import React, { useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import List from '../../Lists/components/List'
 import classes from "../helpers/AddedList.module.css"
-import axios from 'axios'
+import request from '../../Bushboard/api/requests'
 
 export default function AddedList() {
-    const URL = "https://jsonplaceholder.typicode.com/todos"
     
 
     const [newList, setNewList] = useState([])
+        useEffect(()=>{
+            request()
+                .then(response => setNewList(response))
+        }, [])
+
     const [idList, setIdList] = useState(newList.length + 1)
-    async function fetchProducts(){
-        const response = await axios.get(URL)
-        console.log(response.data)
-        await addList(response.data)
-    }
-    useEffect(()=>{
-        setNewList(fetchProducts())
-    }, [])
     function addList(arrayLists){
-        console.log(addList)
-        return arrayLists.map((elem)=><List title={elem.title} key={elem.id}/>)
+        return arrayLists.map((elem)=><List propsTitle={elem.title} propsCard = {elem.card} key={`list${elem.userId}`}/>)
     }
     function setArray(){
         setNewList(prev => {
@@ -27,7 +22,6 @@ export default function AddedList() {
             return [...prev, idList]
         })
     }
-
     
   return (
     <>

@@ -4,10 +4,10 @@ import pen from "../assets/icons/pen.png"
 import Modal from '../../../components/Modal'
 import textIcon from "../assets/icons/text.png"
 
-export default function Card() {
+export default function Card({ nameText, id }) {
     const [textEntered, setTextendered] = useState(false)
     const [showedChangeBtn, setShowedChangeBtn] = useState(false)
-    const [title, setTitle] = useState('')
+    const [title, setTitle] = useState(nameText)
     const [modal, setModal] = useState(false)
     const [descr, setDescr] = useState('')
     const [close, setClose] = useState(true)
@@ -36,8 +36,8 @@ export default function Card() {
                 <textarea
                     className={classes['card-text']}
                     type='text'
-                    name="name"
-                    id='text'
+                    id = {id}
+                    defaultValue={`${nameText? title :""}`}
                     autoComplete="off"
                     placeholder='Добавить карточку...'
                     onBlur={(event) => {

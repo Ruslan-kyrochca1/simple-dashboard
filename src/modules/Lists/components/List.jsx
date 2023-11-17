@@ -2,13 +2,13 @@ import classes from '../helpers/List.module.css'
 import Card from '../../ListsTasks/components/Card'
 import React, { useState } from 'react'
 
-export default function List(props) {
-  const [title, setTitle] = useState(props.title)
-  const [addedCard, setAddedCard] = useState([])
+export default function List( { propsTitle, propsCard = [] } ) {
+  const [title, setTitle] = useState(propsTitle)
+  const [addedCard, setAddedCard] = useState(propsCard)
   const [key, setKey] = useState(0)
   const [close, setClose] = useState(true)
   function setCard(array){
-    return array.map(index=> <Card key={index}/>)
+    return array.map((elem)=> <Card nameText={elem.text}  id={`Card${elem.id}`} key={elem.id}/>)
   }
   function setArray(){
       setAddedCard(prev => {
