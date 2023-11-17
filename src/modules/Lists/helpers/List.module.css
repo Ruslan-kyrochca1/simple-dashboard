@@ -1,0 +1,57 @@
+@import '../../../UI/App.css';
+
+.container {
+    margin: 10px;
+    padding: 10px;
+    min-width: 350px;
+    width: 350px;
+    position: relative;
+    height: fit-content;
+    background-color: var(--color-primary-gray-blue);
+    border-radius: 20px;
+}
+
+.title{
+    all: unset;
+    text-align: center;
+    color: var(--color-primary-black)
+}
+
+.added{
+    width: 200px;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    transition: all 0.5s;
+    font-size: 15px;
+    border: none;
+}
+
+.added:hover{
+    background-color: var(--color-primary-gray-light);  
+}
+
+.closeBtn{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary-gray-light);
+    transform: rotate(50grad);
+    border-radius: 50%;
+    transition: background-color 0.5s;
+}
+
+.closeBtn:hover{
+    background-color: var(--color-primary-white);
+}

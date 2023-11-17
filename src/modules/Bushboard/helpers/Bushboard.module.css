@@ -1,0 +1,6 @@
+@import '../../../UI/App.css';
+
+.container{
+    display: flex;
+    justify-content: flex-start
+}
